@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Website</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-o9N1j8gG1+3z8z8eF9z8eF9z8eF9z8eF9z8eF9z8eF9z8=" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-o9N1j8gG1+3z8z8eF9z8eF9z8eF9z8eF9z8eF9z8eF9z8=" crossorigin=""></script>
+    
+
+
+</head>
+<body>
+    <header>
+        <nav>
+            <h1 style="font-size: 2.5rem; color: #6e8efb; text-align: center; margin: 0; text-transform: uppercase; letter-spacing: 1px; background: linear-gradient(135deg, #e3e3ff, #f9f9f9); padding: 10px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
+                My Portfolio
+            </h1>
+            <script>
+                document.addEventListener("DOMContentLoaded", () => {
+                    const header = document.querySelector("h1");
+                    header.style.transition = "transform 0.3s ease, color 0.3s ease";
+                    header.addEventListener("mouseover", () => {
+                        header.style.transform = "scale(1.1)";
+                        header.style.color = "#333";
+                    });
+                    header.addEventListener("mouseout", () => {
+                        header.style.transform = "scale(1)";
+                        header.style.color = "#6e8efb";
+                    });
+                });
+            </script>
+            <ul class="navbar">
+                <li><a href="#Testimonials">Testimonials</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Technical Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="menu-toggle">☰</button>
+            <button class="toggle-theme">🌙</button>
+     
+    </header>
+    <section class="hero">
+        <h1 id="dynamicGreeting" style="font-size: 3.5rem; color: #ffdd57; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); margin-bottom: 20px; animation: pulse 2s infinite;">Welcome to My Portfolio</h1>
+
+        <style>
+            @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            }
+        </style>
+        <script>
+            const greetings = [
+                "Welcome to My Portfolio",
+                "Crafting Modern Web Experiences",
+                "Building Scalable Web Solutions",
+                "Your Next Full-Stack Developer",
+                "Innovating with Cutting-Edge Technologies",
+                "Delivering Excellence in Web Development",
+                "Transforming Ideas into Reality",
+                "Empowering Businesses with Technology",
+                "Creating Seamless User Experiences",
+                "Your Partner in Digital Transformation"
+            ];
+            let index = 0;
+
+            function updateGreeting() {
+            const greetingElement = document.getElementById("dynamicGreeting");
+            greetingElement.textContent = greetings[index];
+            index = (index + 1) % greetings.length;
+            }
+
+            setInterval(updateGreeting, 3000); // Change greeting every 3 seconds
+        </script>
+        <p>Crafting modern and elegant web experiences.</p>
+    </section>
+
+    <div class="cta-container">
+        <h1 class="cta-title" id="dynamicTitle">Hi, I'm Adeleke Uthman</h1>
+        <style>
+            @keyframes textFade {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            50% {
+                opacity: 0.5;
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            }
+
+            .cta-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #333;
+            animation: textFade 1.5s ease-in-out;
+            transition: color 0.3s ease, transform 0.3s ease;
+            cursor: pointer;
+            }
+
+            .cta-title:hover {
+            color: #6e8efb;
+            transform: scale(1.1);
+            }
+        </style>
+        <script>
+            const titles = [
+            "Hi, I'm Adeleke Uthman",
+            "A Full-Stack Developer",
+            "Crafting Modern Web Experiences",
+            "Building Scalable Web Solutions"
+            ];
+            let titleIndex = 0;
+
+            function updateTitle() {
+            const titleElement = document.getElementById("dynamicTitle");
+            titleElement.textContent = titles[titleIndex];
+            titleIndex = (titleIndex + 1) % titles.length;
+            }
+
+            setInterval(updateTitle, 4000); // Change title every 4 seconds
+        </script>
+        <p class="cta-subtitle">Full-Stack Developer & Android Engineer</p>
+        <div class="cta-buttons">
+            <button class="cta-button work-btn" onclick="viewWork()">View My Work</button>
+            <button class="cta-button hire-btn" onclick="hireMe()">Hire Me</button>
+        </div>
+    </div>
+
+
+    <section id="about">
+        <h2 style="font-size: 2.5rem; color: #6e8efb; text-align: center; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; background: linear-gradient(135deg, #e3e3ff, #f9f9f9); padding: 15px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
+            About Me
+        </h2>
+        <p style="font-size: 1.2rem; line-height: 1.8; color: #555; text-align: justify; margin-bottom: 20px; background: linear-gradient(135deg, #f9f9f9, #e3e3ff); padding: 15px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+            My name is Adeleke Uthman. I am a passionate full-stack developer skilled in building modern and responsive web applications. I specialize in JavaScript, React, Node.js, and other cutting-edge technologies.
+        </p>
+        <p id="dynamicAbout" style="font-size: 1.2rem; line-height: 1.8; color: #555; text-align: justify; margin-bottom: 20px; background: linear-gradient(135deg, #f9f9f9, #e3e3ff); padding: 15px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+            Experienced Back-End Engineer with a strong background in designing, developing, and optimizing scalable web applications. Proficient in API design, authentication, database management, and performance tuning. Passionate about building robust backend architectures that drive seamless user experiences. Currently expanding expertise in Ruby on Rails to complement full-stack proficiency.
+        </p>
+        <script>
+            const aboutTexts = [
+            "Experienced Back-End Engineer with a strong background in designing, developing, and optimizing scalable web applications.",
+            "Proficient in API design, authentication, database management, and performance tuning.",
+            "Passionate about building robust backend architectures that drive seamless user experiences.",
+            "Currently expanding expertise in Ruby on Rails to complement full-stack proficiency."
+            ];
+            let aboutIndex = 0;
+
+            function updateAboutText() {
+            const aboutElement = document.getElementById("dynamicAbout");
+            aboutElement.textContent = aboutTexts[aboutIndex];
+            aboutIndex = (aboutIndex + 1) % aboutTexts.length;
+            }
+
+            setInterval(updateAboutText, 4000); // Change about text every 4 seconds
+        </script>
+    </section>
+
+    
+    </a>
+    
+    <section id="experience">
+        <h2>Experience</h2>
+        <ul>
+            <li onclick="toggleDetails('exp1')"><strong>Back-End Engineer | Netguru (2021 – Present)</strong>
+                <div id="exp1" class="hidden-details">Developed and optimized scalable RESTful APIs for client-facing applications, improving response times by 30%. Implemented JWT/OAuth-based authentication, strengthening security and user access control. Designed efficient PostgreSQL database schemas, reducing query execution time by 40%. Integrated background job processing using Sidekiq to handle async tasks. Worked with front-end teams to provide well-documented API endpoints. Led debugging efforts, reducing system downtime by 50%.</div>
+            </li>
+            <li onclick="toggleDetails('exp2')"><strong>Full-Stack Developer | Freelance (2019 – 2021)</strong>
+                <div id="exp2" class="hidden-details">Built and deployed Laravel- and React-based applications for various clients. Designed database schemas for optimized query performance. Developed authentication & authorization flows using OAuth and JWT. Implemented CI/CD pipelines using Docker & GitHub Actions for automated deployments.</div>
+            </li>
+        </ul>
+    </section>
+
+
+    <section class="about-me">
+        <h2 style="font-size: 2.5rem; color: #6e8efb; text-align: center; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; background: linear-gradient(135deg, #e3e3ff, #f9f9f9); padding: 15px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
+            🚀 My Tech Journey
+        </h2>
+        <p id="techJourneyText" style="font-size: 1.2rem; line-height: 1.8; color: #555; text-align: justify; margin-bottom: 20px; background: linear-gradient(135deg, #f9f9f9, #e3e3ff); padding: 15px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+            My journey into technology began with a fascination for how software can solve real-world problems. Over the years, I have honed my skills in full-stack development, mastering both front-end and back-end technologies. From building responsive web applications to designing scalable backend systems, my passion for innovation drives me to continuously learn and grow.
+        </p>
+    
+        <p id="typing-text"></p> <!-- Typing effect -->
+        <div class="icons">
+            <span>🐝</span>
+            <span>💻</span>
+            <span>✍️</span>
+            <span>☕</span>
+            <span>🚀</span>
+        </div>
+    </section>
+
+    <section id="projects" class="visible">
+        <h2>Projects & Open Source Contributions</h2>
+        <ul>
+            <li onclick="toggleDetails('proj1')">🔹 Real Estate Listing Platform
+                <div id="proj1" class="hidden-details">
+                    Built a Node.js & PostgreSQL-powered property rental site with authentication, messaging, and payment integration.
+                </div>
+            </li>
+            <li onclick="toggleDetails('proj2')">🔹 E-Commerce API
+                <div id="proj2" class="hidden-details">
+                    Designed a Laravel REST API for a marketplace with JWT authentication, search functionality, and order processing.
+                </div>
+            </li>
+            <li onclick="toggleDetails('proj3')">🔹MERN Stack
+                <div id="proj3" class="hidden-details">
+                    E-commerce Store (MERN Stack) - Cart, authentication, checkout with Stripe
+                </div>
+            </li>
+            <li onclick="toggleDetails('proj4')">🔹Real Estate
+                <div id="proj4" class="hidden-details">
+                    Real Estate Platform (React, Node.js, PostgreSQL) - Connect renters with landlords
+                </div>
+            </li>
+            <li onclick="toggleDetails('proj5')">🔹Weather App
+                <div id="proj5" class="hidden-details">
+                    Weather App (React, OpenWeather API) - Displays live weather updates.
+                </div>
+            </li>
+        </ul>
+    </section>
+    <section id="certifications" class="visible">
+        <h2 style="font-size: 2.5rem; color: #6e8efb; text-align: center; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; background: linear-gradient(135deg, #e3e3ff, #f9f9f9); padding: 15px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
+            Certifications & Achievements
+        </h2>
+        <div id="certificationsContainer" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+            <div class="cert-card" style="background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); width: 300px; text-align: center; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+            <h3 style="color: #6e8efb;">Ruby on Rails Fundamentals</h3>
+            <p style="color: #555;">In Progress</p>
+            <button class="cert-details-btn" style="background: #6e8efb; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; transition: background 0.3s;">View Details</button>
+            <div class="cert-details" style="display: none; margin-top: 10px; color: #555;">Currently learning the fundamentals of Ruby on Rails to expand my backend expertise.</div>
+            </div>
+            <div class="cert-card" style="background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); width: 300px; text-align: center; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+            <h3 style="color: #6e8efb;">PHP & API Development</h3>
+            <p style="color: #555;">Udemy (2022)</p>
+            <button class="cert-details-btn" style="background: #6e8efb; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; transition: background 0.3s;">View Details</button>
+            <div class="cert-details" style="display: none; margin-top: 10px; color: #555;">Completed an in-depth Udemy course on PHP and API development, covering RESTful API design and authentication.</div>
+            </div>
+            <div class="cert-card" style="background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); width: 300px; text-align: center; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+            <h3 style="color: #6e8efb;">Docker for Developers</h3>
+            <p style="color: #555;">Coursera (2023)</p>
+            <button class="cert-details-btn" style="background: #6e8efb; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; transition: background 0.3s;">View Details</button>
+            <div class="cert-details" style="display: none; margin-top: 10px; color: #555;">Learned containerization concepts, Docker Compose, and how to deploy scalable applications using Docker.</div>
+            </div>
+        </div>
+        
+        <ul>
+            <li onclick="toggleDetails('cert1')">🏆 Ruby on Rails Fundamentals – (In Progress)
+                <div id="cert1" class="hidden-details">
+                    <div style="display: flex; flex-direction: column; align-items: center; gap: 10px;">
+                        <p id="certDescription" style="font-size: 1.2rem; color: #555; text-align: center; transition: all 0.3s ease;">
+                            Currently learning the fundamentals of Ruby on Rails to expand my backend expertise.
+                        </p>
+                        <button id="learnMoreBtn" style="background: #6e8efb; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; transition: background 0.3s ease;">
+                            Learn More
+                        </button>
+                    </div>
+                    <script>
+                        const certDescription = document.getElementById("certDescription");
+                        const learnMoreBtn = document.getElementById("learnMoreBtn");
+
+                        learnMoreBtn.addEventListener("click", () => {
+                            if (certDescription.textContent.includes("Currently learning")) {
+                                certDescription.textContent = "Ruby on Rails is a powerful web application framework that enables developers to build robust and scalable applications efficiently.";
+                                learnMoreBtn.textContent = "Show Less";
+                            } else {
+                                certDescription.textContent = "Currently learning the fundamentals of Ruby on Rails to expand my backend expertise.";
+                                learnMoreBtn.textContent = "Learn More";
+                            }
+                        });
+                    </script></div>
+                </div>
+            </li>
+            <li onclick="toggleDetails('cert2')">🏆 PHP & API Development – Udemy (2022)
+                <div id="cert2" class="hidden-details">
+                    Completed an in-depth Udemy course on PHP and API development, covering RESTful API design and authentication.
+                </div>
+            </li>
+            <li onclick="toggleDetails('cert3')">🏆 Docker for Developers – Coursera (2023)
+                <div id="cert3" class="hidden-details">
+                    Learned containerization concepts, Docker Compose, and how to deploy scalable applications using Docker.
+                </div>
+            </li>
+        </ul>
+    </section>
+
+    <section id="skills">
+        <h2 style="font-size: 2.5rem; color: #6e8efb; text-align: center; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; background: linear-gradient(135deg, #e3e3ff, #f9f9f9); padding: 15px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
+            Technical Skills
+        </h2>
+
+        <div class="skills-container">
+            <div class="skill">💻 HTML, CSS, JavaScript</div>
+            <div class="skill">⚛️ React.js / Next.js</div>
+            <div class="skill">🖥️ Node.js / Express.js</div>
+            <div class="skill">🗄️ PostgreSQL / MongoDB</div>
+            <div class="skill">🔐 JWT & OAuth Authentication</div>
+            <div class="skill">☁️ AWS, Netlify, Vercel</div>
+            <div class="skill">🐳 Docker & Kubernetes</div>
+            <div class="skill">🔧 Git, GitHub, CI/CD</div>
+            <div class="skill">🐍 Python / Django</div>
+            <div class="skill">🌐 RESTful APIs & GraphQL</div>
+            <div class="skill">📱 Mobile Development (React Native)</div>
+            <div class="skill">🛠️ Agile & Scrum Methodologies</div>
+        </div>
+    </section>
+    
+    
+    <section id="Testimonials" class="reveal">
+        <h2 style="font-size: 2.5rem; color: #6e8efb; text-align: center; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; background: linear-gradient(135deg, #e3e3ff, #f9f9f9); padding: 15px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
+            Testimonials
+        </h2>
+        <div id="testimonialCarousel" style="position: relative; overflow: hidden; width: 100%; max-width: 800px; margin: 0 auto;">
+            <div id="testimonialSlides" style="display: flex; transition: transform 0.5s ease-in-out;">
+            <div class="testimonial" style="min-width: 100%; padding: 20px; background: #fff; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); text-align: center;">
+                <p>"Adeleke is a fantastic developer! His expertise in backend development is exceptional. He consistently delivers high-quality work, meets deadlines, and goes above and beyond to ensure project success. His problem-solving skills and attention to detail are truly remarkable. He is also a great communicator, making collaboration seamless and efficient. I highly recommend him for any challenging development projects."</p>
+                <h4>- Client A</h4>
+
+            </div>
+            <div class="testimonial" style="min-width: 100%; padding: 20px; background: #fff; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); text-align: center;">
+                <p>"The Real Estate platform he built was beyond expectations! Highly recommended. Adeleke's attention to detail and ability to deliver on time is truly remarkable. He not only met the project requirements but also provided valuable suggestions that enhanced the overall functionality of the platform. His expertise in backend development and API integration is evident in the seamless performance of the application. I am extremely satisfied with the results and would definitely work with him again on future projects."</p>
+                <h4>- Client B</h4>
+            </div>
+            <div class="testimonial" style="min-width: 100%; padding: 20px; background: #fff; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); text-align: center;">
+                <p>"Adeleke's work is of the highest quality. His coding skills are top-notch!"</p>
+                <h4>- Client C</h4>
+                <div class="testimonial">
+                    <p>"I highly recommend Adeleke for any software development project!"</p>
+                    <h4>- Client D</h4>
+                </div>
+                <div class="testimonial">
+                    <p>"Excellent problem solver and a great team player!"</p>
+                    <h4>- Client E</h4>
+                </div>
+                <div class="testimonial">
+                    <p>"Very responsive and professional in delivering projects."</p>
+                    <h4>- Client F</h4>
+                </div>
+                <div class="testimonial">
+                    <p>"His attention to detail is impressive!"</p>
+                    <h4>- Client G</h4>
+                </div>
+                <div class="testimonial">
+                    <p>"A truly skilled full-stack developer!"</p>
+                    <h4>- Client H</h4>
+                </div>
+                <div class="testimonial">
+                    <p>"Delivered the project ahead of schedule and exceeded expectations!"</p>
+                    <h4>- Client I</h4>
+                </div>
+                <div class="testimonial">
+                    <p>"Great communication and outstanding technical skills!"</p>
+                    <h4>- Client J</h4>
+                </div>
+            </div>
+            </div>
+            <button id="prevBtn" style="position: absolute; top: 50%; left: 10px; transform: translateY(-50%); background: #6e8efb; color: white; border: none; border-radius: 50%; width: 40px; height: 40px; cursor: pointer; font-size: 18px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">‹</button>
+            <button id="nextBtn" style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%); background: #6e8efb; color: white; border: none; border-radius: 50%; width: 40px; height: 40px; cursor: pointer; font-size: 18px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">›</button>
+        </div>
+    
+    </section>
+
+
+    <div class="faq-container">
+        <div id="faqImageCarousel" style="position: relative; overflow: hidden; width: 100%; max-width: 800px; margin: 0 auto; border-radius: 8px;">
+            <div id="faqImageSlides" style="display: flex; transition: transform 0.5s ease-in-out;">
+            <img src="c:\Users\Dell\Desktop\portfolio\professionail 1.jpg" alt="Full Stack Development 1" class="faq-image" style="min-width: 100%; height: auto;">
+            <img src="c:\Users\Dell\Desktop\portfolio\professional 2.jpg" alt="Full Stack Development 2" class="faq-image" style="min-width: 100%; height: auto;">
+            <img src="c:\Users\Dell\Desktop\portfolio\professionail 1.jpg" alt="Full Stack Development 3" class="faq-image" style="min-width: 100%; height: auto;">
+            <img src="c:\Users\Dell\Desktop\portfolio\professionail 3.png" alt="Full Stack Development 1" class="faq-image" style="min-width: 100%; height: auto;">
+            <img src="c:\Users\Dell\Desktop\portfolio\professonail 4.png" alt="Full Stack Development 1" class="faq-image" style="min-width: 100%; height: auto;">
+            
+           </div>
+
+            <button id="prevFaqImage" style="position: absolute; top: 50%; left: 10px; transform: translateY(-50%); background: #6e8efb; color: white; border: none; border-radius: 50%; width: 40px; height: 40px; cursor: pointer; font-size: 18px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">‹</button>
+            <button id="nextFaqImage" style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%); background: #6e8efb; color: white; border: none; border-radius: 50%; width: 40px; height: 40px; cursor: pointer; font-size: 18px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">›</button>
+        </div>
+        <section id="faq" style="background: linear-gradient(135deg, #f9f9f9, #e3e3ff); padding: 60px; border-radius: 15px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); margin: 40px auto; max-width: 900px;">
+            <h2 style="font-size: 2.5rem; color: #6e8efb; text-align: center; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; background: linear-gradient(135deg, #e3e3ff, #f9f9f9); padding: 15px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
+                Frequently Asked Questions 
+            </h2>
+            <div id="faq-list" style="margin-top: 20px;"></div>
+        </section>
+        <div id="faq-list"></div>
+
+
+    <section id="contact">
+        <h2 style="font-size: 2rem; color: #6e8efb; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px;">Contact Me</h2>
+        <form id="contactForm" style="display: flex; flex-direction: column; gap: 15px; max-width: 500px; margin: 0 auto;">
+            <input type="text" id="name" placeholder="Your Name" required style="padding: 10px; border: 1px solid #ddd; border-radius: 5px; font-size: 1rem; transition: border-color 0.3s;">
+            <input type="email" id="email" placeholder="Your Email" required style="padding: 10px; border: 1px solid #ddd; border-radius: 5px; font-size: 1rem; transition: border-color 0.3s;">
+            <textarea id="message" placeholder="Your Message" required style="padding: 10px; border: 1px solid #ddd; border-radius: 5px; font-size: 1rem; resize: none; height: 100px; transition: border-color 0.3s;"></textarea>
+            <button type="submit" style="padding: 10px; background: #6e8efb; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 1rem; transition: background 0.3s;">Send Message</button>
+            <p id="formStatus" style="font-size: 1rem; margin-top: 10px;"></p>
+        </form>
+
+        <div class="contact-info" style="background: linear-gradient(135deg, #e3e3ff, #f9f9f9); padding: 20px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); text-align: center; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+            <p style="font-size: 1.2rem; margin-bottom: 10px;">📧 Email: <a href="mailto:adelekeuthman83@gmail.com" style="color: #6e8efb; text-decoration: none; font-weight: bold;">adelekeuthman83@gmail.com</a></p>
+            <p style="font-size: 1.2rem; margin-bottom: 10px;">📞 Phone: <span id="phoneNumber" style="font-weight: bold;">+2349131449706</span> 
+            <button id="copyPhone" style="background: #6e8efb; color: white; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer; font-size: 0.9rem; transition: background 0.3s ease;">Copy</button>
+            </p>
+            <p style="font-size: 1.2rem; margin-bottom: 10px;">💬 <a href="https://wa.me/2349131449706" target="_blank" style="color: #6e8efb; text-decoration: none; font-weight: bold;">Chat on WhatsApp</a></p>
+            <p style="font-size: 1.2rem; margin-bottom: 10px;">🌐 GitHub: <a href="https://github.com/Shatibiy001" target="_blank" style="color: #6e8efb; text-decoration: none; font-weight: bold;">github.com/adelekeuthman</a></p>
+        </div>
+    </section>
+
+    <script>
+        // Add focus effect to form inputs
+        document.querySelectorAll('#contactForm input, #contactForm textarea').forEach(input => {
+            input.addEventListener('focus', () => {
+                input.style.borderColor = '#6e8efb';
+            });
+            input.addEventListener('blur', () => {
+                input.style.borderColor = '#ddd';
+            });
+        });
+
+        // Copy phone number to clipboard
+        document.getElementById("copyPhone").addEventListener("click", () => {
+            const phoneNumber = document.getElementById("phoneNumber").textContent;
+            navigator.clipboard.writeText(phoneNumber).then(() => {
+                const copyButton = document.getElementById("copyPhone");
+                copyButton.textContent = "Copied!";
+                copyButton.style.background = "#a777e3";
+                setTimeout(() => {
+                    copyButton.textContent = "Copy";
+                    copyButton.style.background = "#6e8efb";
+                }, 2000);
+            });
+        });
+
+        // Handle form submission
+        document.getElementById("contactForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const message = document.getElementById("message").value.trim();
+            const formStatus = document.getElementById("formStatus");
+
+            if (name === "" || email === "" || message === "") {
+                formStatus.style.color = "red";
+                formStatus.textContent = "Please fill in all fields!";
+                return;
+            }
+
+            formStatus.style.color = "green";
+            formStatus.textContent = "Message sent successfully! ✅";
+
+            setTimeout(() => {
+                document.getElementById("contactForm").reset();
+                formStatus.textContent = "";
+            }, 3000);
+        });
+    </script>
+    <script>
+        
+
+        
+        // Mobile navbar togglenot effective on mobile device 
+        // Mobile navbar toggle fix
+        
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navbar = document.querySelector('.navbar');
+        const overlay = document.createElement('div');
+        overlay.className = 'overlay';
+        document.body.appendChild(overlay);
+        
+        menuToggle.addEventListener('click', () => {
+            navbar.classList.toggle('show');
+            overlay.style.display = navbar.classList.contains('show') ? 'block' : 'none';
+        });
+        
+        overlay.addEventListener('click', () => {
+            navbar.classList.remove('show');
+            overlay.style.display = 'none';
+        });
+        // Dark mode toggle
+        document.querySelector('.toggle-theme').addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+        });
+
+        // Section reveal effect
+        const revealSections = document.querySelectorAll('.reveal');
+        window.addEventListener('scroll', () => {
+            revealSections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                if (sectionTop < window.innerHeight - 100) {
+                    section.classList.add('visible');
+                }
+            });
+        });
+
+        // Collapsible cards
+        document.querySelectorAll('.collapsible-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const content = header.nextElementSibling;
+                content.style.display = content.style.display === "block" ? "none" : "block";
+            });
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const skills = document.querySelectorAll(".skill");
+            skills.forEach((skill, index) => {
+                skill.style.animationDelay = `${index * 0.2}s`;
+            });
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const skillsContainer = document.querySelector(".skills-container");
+            const skills = skillsContainer.querySelectorAll(".skill");
+
+            skills.forEach((skill, index) => {
+                skill.style.animation = "fadeIn 0.5s ease-in-out";
+                skill.style.animationDelay = `${index * 0.2}s`;
+                skill.style.opacity = "0";
+
+                setTimeout(() => {
+                skill.style.opacity = "1";
+                }, index * 200);
+            });
+            });
+
+            // Typing effect for the About Me section
+            const text = "I’m Adeleke Uthman, a Full-Stack Developer & Android Engineer passionate about building innovative, scalable, and user-friendly applications. My journey into software development started with a curiosity about how technology can solve real-world problems, and over the years, I’ve transformed that curiosity into a career focused on creating impactful solutions. I specialize in frontend, backend, and mobile development, tackling complex challenges and driving innovation.";
+            const typingSpeed = 40;
+            let i = 0;
+
+            function typeText() {
+                if (i < text.length) {
+                    document.getElementById("typing-text").innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(typeText, typingSpeed);
+                }
+            }
+
+            document.addEventListener("DOMContentLoaded", function() {
+                typeText();
+            });
+
+            const journeyTexts = [
+            "My journey into technology began with a fascination for how software can solve real-world problems.",
+            "Over the years, I have honed my skills in full-stack development, mastering both front-end and back-end technologies.",
+            "From building responsive web applications to designing scalable backend systems, my passion for innovation drives me to continuously learn and grow.",
+            "I am committed to leveraging technology to create impactful solutions and empower businesses."
+            ];
+            let journeyIndex = 0;
+
+            function updateJourneyText() {
+            const journeyElement = document.getElementById("techJourneyText");
+            journeyElement.textContent = journeyTexts[journeyIndex];
+            journeyIndex = (journeyIndex + 1) % journeyTexts.length;
+            }
+
+            setInterval(updateJourneyText, 4000); // Change journey text every 4 seconds
+
+
+
+        const slides = document.getElementById("testimonialSlides");
+            const prevBtn = document.getElementById("prevBtn");
+            const nextBtn = document.getElementById("nextBtn");
+            let currentIndex = 0;
+
+            function updateCarousel() {
+            const slideWidth = slides.children[0].offsetWidth;
+            slides.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+            }
+
+            prevBtn.addEventListener("click", () => {
+            currentIndex = (currentIndex === 0) ? slides.children.length - 1 : currentIndex - 1;
+            updateCarousel();
+            });
+
+            nextBtn.addEventListener("click", () => {
+            currentIndex = (currentIndex === slides.children.length - 1) ? 0 : currentIndex + 1;
+            updateCarousel();
+            });
+
+            function viewWork() {
+            window.location.href = "#projects"; // Change to your actual project section link
+           }
+
+            function hireMe() {
+            window.location.href = "#contact"; // Change to your actual contact section link
+            }
+
+            // Auto-slide every 5 seconds
+            setInterval(() => {
+            nextBtn.click();
+            }, 5000);
+
+        document.addEventListener("DOMContentLoaded", function () {
+            document.querySelectorAll("section").forEach(section => {
+                section.classList.add("visible");
+            });
+
+            // Smooth scrolling effect for navigation
+            document.querySelectorAll("nav ul li a").forEach(anchor => {
+                anchor.addEventListener("click", function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute("href"));
+                    if (target) {
+                        target.scrollIntoView({ behavior: "smooth", block: "start" });
+                    }
+                });
+            });
+        });
+
+        document.querySelectorAll('.cert-details-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const details = button.nextElementSibling;
+                if (details.style.display === 'none' || details.style.display === '') {
+                details.style.display = 'block';
+                button.textContent = 'Hide Details';
+                } else {
+                details.style.display = 'none';
+                button.textContent = 'View Details';
+                }
+            });
+            });
+
+        function toggleDetails(id) {
+            const details = document.getElementById(id);
+            if (details.style.display === "none" || details.style.display === "") {
+                details.style.display = "block";
+                details.style.opacity = "1";
+                details.style.transition = "opacity 0.3s ease-in-out";
+            } else {
+                details.style.opacity = "0";
+                setTimeout(() => { details.style.display = "none"; }, 300);
+            }
+        }
+
+        document.getElementById("contactForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const message = document.getElementById("message").value.trim();
+            const formStatus = document.getElementById("formStatus");
+
+            if (name === "" || email === "" || message === "") {
+                formStatus.style.color = "red";
+                formStatus.textContent = "Please fill in all fields!";
+                return;
+            }
+
+            formStatus.style.color = "green";
+            formStatus.textContent = "Message sent successfully! ✅";
+
+            setTimeout(() => {
+                document.getElementById("contactForm").reset();
+                formStatus.textContent = "";
+            }, 3000);
+    });
+
+        window.onload = function() {
+            const faqs = [
+                { question: "What is the difference between front-end and back-end development?", answer: "Front-end development focuses on the user interface and user experience of a website, while back-end development deals with server-side logic, databases, and application functionality." },
+                { question: "What is a RESTful API?", answer: "A RESTful API is an application programming interface that follows the principles of REST (Representational State Transfer) architecture, allowing communication between client and server using HTTP methods like GET, POST, PUT, and DELETE." },
+                { question: "What is the importance of version control in development?", answer: "Version control systems like Git help developers track changes, collaborate with others, and manage code efficiently, ensuring a history of modifications and the ability to revert to previous versions if needed." },
+                { question: "What is the purpose of responsive design?", answer: "Responsive design ensures that a website or application looks and functions well on devices of all sizes, including desktops, tablets, and smartphones, by using flexible layouts and media queries." },
+                { question: "What is the role of databases in web development?", answer: "Databases store and manage data for web applications, enabling developers to retrieve, update, and manipulate information efficiently for dynamic and interactive user experiences." },
+                { question: "What is a framework in web development?", answer: "A framework is a pre-built collection of tools, libraries, and best practices that help developers build web applications more efficiently by providing a structured foundation and reusable components." },
+                { question: "What are some popular front-end frameworks?", answer: "Popular front-end frameworks include React, Angular, and Vue.js, which help developers build dynamic and interactive user interfaces." },
+                { question: "What are some popular back-end frameworks?", answer: "Popular back-end frameworks include Node.js (with Express), Django, Ruby on Rails, and Laravel, which simplify server-side development and database integration." },
+                { question: "What is Full Stack Development?", answer: "Full Stack Development refers to the development of both front-end (client-side) and back-end (server-side) portions of a web application." },
+                { question: "What technologies are used in Full Stack Development?", answer: "Common technologies include HTML, CSS, JavaScript, React, Node.js, Express.js, Python, Django, and databases like MongoDB and PostgreSQL." },
+                { question: "What is the role of a Full Stack Developer?", answer: "A Full Stack Developer is responsible for designing, developing, and maintaining both client and server-side applications, managing databases, and ensuring the overall performance of web applications." },
+                { question: "What are the benefits of being a Full Stack Developer?", answer: "Full Stack Developers have a versatile skill set, allowing them to work on various parts of a project. This increases job opportunities and the ability to build complete applications independently." },
+                { question: "How can I become a Full Stack Developer?", answer: "Start by learning HTML, CSS, JavaScript, and a front-end framework like React. Then move to backend technologies such as Node.js or Django, and learn database management with MySQL or MongoDB." }
+            ];
+
+            const faqList = document.getElementById("faq-list");
+
+            faqs.forEach(faq => {
+                const faqItem = document.createElement("div");
+                faqItem.classList.add("faq-item");
+
+                const question = document.createElement("div");
+                question.classList.add("faq-question");
+                question.innerHTML = `${faq.question} <span>+</span>`;
+
+                const answer = document.createElement("div");
+                answer.classList.add("faq-answer");
+                answer.innerHTML = faq.answer;
+
+                question.addEventListener("click", () => {
+                    const isVisible = answer.style.display === "block";
+                    document.querySelectorAll(".faq-answer").forEach(ans => ans.style.display = "none");
+                    document.querySelectorAll(".faq-question span").forEach(span => span.textContent = "+");
+
+                    if (!isVisible) {
+                        answer.style.display = "block";
+                        question.querySelector("span").textContent = "-";
+                    }
+                });
+
+                faqItem.appendChild(question);
+                faqItem.appendChild(answer);
+                faqList.appendChild(faqItem);
+            });
+        };
+
+        <!-- Copy phone number to clipboard -->
+        document.getElementById("copyPhone").addEventListener("click", () => {
+            const phoneNumber = document.getElementById("phoneNumber").textContent;
+            navigator.clipboard.writeText(phoneNumber).then(() => {
+                alert("Phone number copied to clipboard!");
+            });
+        });
+
+        // Initialize map (using Leaflet.js for simplicity)
+        document.addEventListener("DOMContentLoaded", () => {
+            const mapContainer = document.getElementById('map');
+            if (mapContainer) {
+                const map = L.map('map').setView([6.5244, 3.3792], 13); // Coordinates for Lagos, Nigeria
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                }).addTo(map);
+
+                L.marker([6.5244, 3.3792]).addTo(map)
+                    .bindPopup('Adeleke Uthman - Full Stack Developer')
+                    .openPopup();
+            } else {
+                console.error('Map container not found!');
+            }
+        });
+        document.getElementById("copyPhone").addEventListener("click", () => {
+            const phoneNumber = document.getElementById("phoneNumber").textContent;
+            navigator.clipboard.writeText(phoneNumber).then(() => {
+                const copyButton = document.getElementById("copyPhone");
+                copyButton.textContent = "Copied!";
+                copyButton.style.background = "#a777e3";
+                setTimeout(() => {
+                copyButton.textContent = "Copy";
+                copyButton.style.background = "#6e8efb";
+                }, 2000);
+            });
+            });
+
+            const faqImageSlides = document.getElementById("faqImageSlides");
+            const prevFaqImage = document.getElementById("prevFaqImage");
+            const nextFaqImage = document.getElementById("nextFaqImage");
+            let faqImageIndex = 0;
+
+            function updateFaqImageCarousel() {
+            const slideWidth = faqImageSlides.children[0].offsetWidth;
+            faqImageSlides.style.transform = `translateX(-${faqImageIndex * slideWidth}px)`;
+            }
+
+            prevFaqImage.addEventListener("click", () => {
+            faqImageIndex = (faqImageIndex === 0) ? faqImageSlides.children.length - 1 : faqImageIndex - 1;
+            updateFaqImageCarousel();
+            });
+
+            nextFaqImage.addEventListener("click", () => {
+            faqImageIndex = (faqImageIndex === faqImageSlides.children.length - 1) ? 0 : faqImageIndex + 1;
+            updateFaqImageCarousel();
+            });
+
+            // Auto-slide every 5 seconds
+            setInterval(() => {
+            nextFaqImage.click();
+            }, 5000);
+    </script>
+</body>
+</html>
